@@ -18,6 +18,10 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.2",
+    "handlebars": "^4.7.8",
+    "hbs": "^4.2.0",
     "modern-normalize": "^1.1.0"
   },
   "devDependencies": {
@@ -25,7 +29,6 @@
     "parcel": "^2.6.0",
     "parcel-reporter-clean-dist": "^1.0.4",
     "posthtml-include": "^1.7.4"
-    
   },
   "browserslist": "> 0.5%, last 2 versions, not dead"
 }
