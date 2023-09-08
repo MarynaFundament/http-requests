@@ -13,24 +13,70 @@
  * - https://pokeapi.co/
  */
 
+const pokemonFormEl = document.querySelector('.js-search-form')
+const pokemonWrapperEl = document.querySelector('.js-card-container')
+const submitBtn = document.querySelector('.btn-primary')
+// console.log(pokemonFormEl)
+// console.log(pokemonWrapperEl)
+// console.log(submitBtn)
+
+import '../css/common.css';
 
 
-// import '../css/common.css';
-// import pokemonCardTpl from '../templates/pokemon-card.html';
 
-// const r  = fetch ('https://pokeapi.co/api/v2/pokemon/2').then(response => {
-//  return response.json();
-// })
-// .then (pokemon => {
-//   console.log(pokemon);
-//   const markup = pokemonCardTpl(pokemon);
 
+pokemonFormEl.addEventListener('submit', handleDinosaurSearch)
+
+function handleDinosaurSearch(event){
+event.preventDefault();
+
+const searchRes = event.target.elements.query.value.trim()
+ 
+function fetchpokemonById(argument){
+  return fetch (`https://pokeapi.co/api/v2/pokemon/${searchRes}`)
+ .then(response => response.json())
+ }
+
+fetchpokemonById()
+.then(createMarkup)
+.catch(error => console.log(error))
+
+
+
+}
+
+
+
+function createMarkup(pokemonData){
+
+    const { name,sprites,weight,height,ability} = pokemonData;
+    // console.log(pokemonData);
+
+    const markup = `<div class="card">
+    <div class="card-img-top">
+      <img src="${sprites.front_default}" alt="${name}"> 
+    </div>
+    <div class="card-body">
+      <h2 class="card-title">Імʼя: ${name}</h2>
+      <p class="card-text">Вага: ${weight}</p>
+      <p class="card-text">Ріст:${height}</p>
   
-//   console.log (markup)
-// })
-// .catch(error => {
-//   console.log(error)
-// })
+    </div>
+  </div>`
+
+  pokemonWrapperEl.innerHTML= markup
+
+  // src="${sprites.front_default}
+  
+      // <p class="card-text"><b>Умения</b></p>
+      // // <ul class="list-group"></ul>
+      // //   <li class="list-group-item">${ability}</li>
+    
+      // // </ul>
+}
+
+
+
 
 
 
