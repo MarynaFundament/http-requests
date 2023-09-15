@@ -22,9 +22,6 @@ const submitBtn = document.querySelector('.btn-primary')
 
 import '../css/common.css';
 
-
-
-
 pokemonFormEl.addEventListener('submit', handleDinosaurSearch)
 
 function handleDinosaurSearch(event){
@@ -40,14 +37,11 @@ function fetchpokemonById(argument){
 fetchpokemonById()
 .then(createMarkup)
 .catch(error => console.log(error))
-
-
-
 }
 
 
-
 function createMarkup(pokemonData){
+  
 
     const { name,sprites,weight,height,ability} = pokemonData;
     // console.log(pokemonData);

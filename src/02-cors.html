@@ -9,5 +9,25 @@
   <body>
     <p><a href="index.html">На главную</a></p>
 
+    <form class="form-newsinline  js-newssearch-form">
+      <div class="form-newsgroup">
+        <input
+         type="text"
+         class="form-newscontrol"
+         name="query" />
+      </div>
+
+      <button type="submit" class="newsbtn btn-newsprimary">Seach</button>
+     
+    </form>
+
+    <button type="button" 
+    class="secondnewsbtn secondbtn-newsprimary"
+    data-action = "load-more"> Find more
+    </button>
+
+    <ul class="articles js-articles-container"></ul>
+    
+    <script src="../src/js/placeholder.js" type="module"></script>
   </body>
 </html>
